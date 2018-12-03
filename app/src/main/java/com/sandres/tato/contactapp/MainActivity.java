@@ -2,6 +2,7 @@ package com.sandres.tato.contactapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -21,11 +22,11 @@ public class MainActivity extends AppCompatActivity {
         contactos.add(new Contactos("Natalie", "Coello",22232428,"Quezada3"));
         contactos.add(new Contactos("Julissa", "Zuniga",22232429,"Quezada4"));
 
-        ArrayList<String> nombreContactos = new ArrayList<>();
+        ArrayList<String> nombreContatos = new ArrayList<>();
 
-        for (Contactos contacto: contactos){
-            nombreContactos.add(contacto.getNombre+contacto.getAppellido());
-        }
+        for (Contactos contacto: contactos)
+            nombreContatos.add(contacto.getNombre()+" "+contacto.getApellido());
+        lvContactos.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, nombreContatos));
 
 
     }
